@@ -5,8 +5,8 @@ return [
 		'mywishlist' => 'My wish list'
 	],
 	'list' => [
-        'dishwasher' => 'Dishwashers',
-        'smallAppliances' => 'Small Appliances',
+        'dishwashers' => 'Dishwashers',
+        'small-appliances' => 'Small Appliances',
     ],
     'category' => [
         'dishwasher' => 'Dishwasher',

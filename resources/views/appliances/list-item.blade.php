@@ -11,20 +11,21 @@
                      alt="{{ $appliance->title }}">
             </div>
             <div class="product-description col-xs-8 col-sm-8">
-                <h3>&euro;&nbsp;{{ $appliance->price }}</h3>
+                <h3>{{ $appliance->price }}&nbsp;&euro;</h3>
                 {!! $appliance->description !!}<br/>
                 <div class="btn-group" role="group" aria-label="...">
                   @if(Auth::check()) 
                   <form method="post"
                               action="{{ route('wisheslist.addRemove.appliance', [ 'userId' => Auth::user()->id ]) }}">
-                   {{ csrf_field() }}
-                    <input type="hidden" name="applianceId" value="{{ $appliance->id }}">
-                  
-                   @if($appliance->isWish != null) 
+                     {{ csrf_field() }}
+                      <input type="hidden" name="applianceId" value="{{ $appliance->id }}">
+                    
+                     @if($appliance->isWish != null) 
                         <button type="submit" class="btn btn-primary" name='submitButton' value="remove">Remove from wish list</button>
-                    @else 
-                     <button type="submit" class="btn btn-primary" name='submitButton' value="add">Add to wish list</button>
-                   @endif
+                      @else 
+                        <button type="submit" class="btn btn-primary" name='submitButton' value="add">Add to wish list</button>
+                     @endif
+                   </form>
                   @endif
                 </div>
             </div>

@@ -39,7 +39,7 @@ class WisheslistController extends Controller
             ->join('wisheslist as w',  function ($join) {
                       $join->on('w.appliance_id', '=', 'ap.id')
                         ->on('w.user_id', '=', DB::raw(Auth::user()->id));
-                     })->get()
+                     })->paginate(5)
         ]);
     }
 
@@ -55,16 +55,16 @@ class WisheslistController extends Controller
         }
 
         $applianceId = $request->input('applianceId');
-        DebugBar::info('pulsado');
+        //DebugBar::info('pulsado');
         switch($request->submitButton) {
             case 'add': 
-                DebugBar::info('pulsado add');
+                //DebugBar::info('pulsado add');
 
                 $this->wisheslistService->addApplianceToUserWishlist($userId, $applianceId);
             break;
 
             case 'remove': 
-                DebugBar::info('pulsado remove');
+                //DebugBar::info('pulsado remove');
                 $this->wisheslistService->removeApplianceFromUserWishlist($userId, $applianceId);
             break;
         }
